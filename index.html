@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow — To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✅</text></svg>" />
+</head>
+<body>
+  <main class="app" aria-labelledby="app-title">
+    <!-- Header -->
+    <header class="app-header">
+      <h1 id="app-title" class="app-title">
+        <span class="logo" aria-hidden="true">✓</span>
+        TaskFlow
+      </h1>
+      <p class="app-subtitle">Stay organized, one task at a time.</p>
+    </header>
+
+    <!-- Add Task Form -->
+    <form id="task-form" class="task-form" novalidate>
+      <div class="input-group">
+        <label for="task-input" class="visually-hidden">Enter a new task</label>
+        <input
+          type="text"
+          id="task-input"
+          class="task-input"
+          placeholder="What needs to be done?"
+          maxlength="200"
+          autocomplete="off"
+          aria-describedby="input-error"
+        />
+        <button type="submit" class="btn-add" aria-label="Add task">
+          <span aria-hidden="true">+</span> Add
+        </button>
+      </div>
+      <p id="input-error" class="input-error" role="alert" aria-live="polite"></p>
+    </form>
+
+    <!-- Stats -->
+    <div class="stats" role="status" aria-live="polite">
+      <span id="total-count">0</span> tasks &middot;
+      <span id="completed-count">0</span> completed
+    </div>
+
+    <!-- Filters -->
+    <nav class="filters" aria-label="Task filters">
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter-btn" data-filter="active" aria-pressed="false">Active</button>
+      <button class="filter-btn" data-filter="completed" aria-pressed="false">Completed</button>
+    </nav>
+
+    <!-- Task List -->
+    <ul id="task-list" class="task-list" aria-label="Tasks"></ul>
+
+    <!-- Empty State -->
+    <div id="empty-state" class="empty-state">
+      <p class="empty-icon" aria-hidden="true">📋</p>
+      <p class="empty-text" id="empty-message">No tasks yet. Add one above!</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Double-click a task to edit &middot; Press <kbd>Enter</kbd> to save</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
